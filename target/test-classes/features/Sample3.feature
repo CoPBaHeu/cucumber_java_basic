@@ -10,14 +10,33 @@ Feature: Introduction to cucumber part 3
     And I enter age: <age>
     And I click submit age
     Then I see message: "<message>"
-  @working
+    @working
     Examples:
       | name  | age | message                        |
       | Ann   | 5   | Hello, Ann, you are a kid      |
       | Marry | 50  | Hello, Marry, you are an adult |
       | Bob   | 61  | Hello, Bob, you are an adult   |
-  @not_working
+    @not_working
     Examples:
       | name | age | message                   |
       | Tom  | 15  | Hello, Tom, you are a kid |
+
+# TODO - create Scenario Outline for 'Give us your feedback!' page
+  # URL: https://kristinek.github.io/site/tasks/provide_feedback
+  # Navigate to page
+  # Set name and age based on test Examples
+  # Click "Send" button and verify that previous input is displayed in correct fields
+  @activity_3
+  Scenario Outline: Feedback with name and age
+    Given I am on feedback page
+    When I enter name in feedback: "<name>"
+    And I enter age in feedback: <age>
+    And I click send feedback
+    Then I see name "<name>" in feedback confirmation
+    And I see age "<age>" in feedback confirmation
+    Examples:
+      | name  | age |
+      | Ann   | 5   |
+      | Marry | 50  |
+      | Bob   | 61  |
 
