@@ -189,4 +189,32 @@ public class SampleSteps {
         assertEquals(str, driver.switchTo().alert().getText());
         driver.switchTo().alert().accept();
     }
+
+    @When("^I select feedback languages$")
+    public void iSelectFeedbackLanguages(List<String> language) throws Throwable {
+        for (String str : language) {
+            driver.findElement(By.xpath("//input[@class='w3-check' and @value='" + str + "']")).click();
+        }
+    }
+
+    @Then("^I can see languages \"([^\"]*)\" in feedback check$")
+    public void iCanSeeLanguagesInFeedback(String language) throws Throwable {
+        assertEquals(language,driver.findElement(By.id("language")).getText());
+    }
+
+    @Then("^I see genre \"([^\"]*)\" in feedback confirmation$")
+    public void iSeeFeedbackGenreConfirmation(String inputGenre) throws Throwable {
+        assertEquals(inputGenre, driver.findElement(By.id("gender")).getText());
+    }
+
+    //private Map<String, String> inputValues;
+    @When("^Input from map$")
+    public void inputFromMap(Map<String, String> inputValues)throws Throwable {
+        //this.inputValues = inputValues;
+        iEnterFeedbackName(inputValues.get("name"));
+        driver.findElement(By.id("fb_age")).clear();
+        driver.findElement(By.id("fb_age")).sendKeys(inputValues.get("age"));
+        driver.findElement(By.xpath("//input[@value='" + inputValues.get("genre") + "']")).click();
+
+    }
 }

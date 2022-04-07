@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "html:cucumber-report/html-report",
                 "junit:cucumber-report/junit-report.xml",
                 "json:cucumber-report/json-report.json"},
-        tags = {"@individual_task_1"},
+        tags = {"@individual_task_2"},
         glue = {"stepDefinitions"}
 )
 public class CucumberRunner {

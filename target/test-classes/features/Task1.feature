@@ -2,7 +2,7 @@
 Feature: Personal task cucumber part 1
   As a test engineer
   I want to be able to write and execute a scenario outline
-  
+
   #TODO - "https://kristinek.github.io/site/tasks/enter_a_number"
 #
 #Scenario outline for error cases:
